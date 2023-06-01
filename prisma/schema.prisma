@@ -6,3 +6,22 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+
+model User {
+  id Int @id @default(autoincrement())
+  name String?                              // ? 表示这个是可选的 在创建的时候不用提前知道name
+  email String @unique
+  posts Post[]                              // 这样就把User和Post 关联上了 []是指User可以关联多个Post
+}
+
+model Post {
+  id Int @id @default(autoincrement())
+  title String
+  content String?
+  published Boolean @default(false)
+  authorId Int?
+  author User? @relation(fields: [authorId], references: [id])   // 把两个数据类型相关联
+  // 用relation标识符来进行关联 fields 是指当前类作为关联的键; references 是指被关联类的键
+  // 相当于 把Post类的authorId 和 User类的id 相关联
+  // 但这样还不够 这样只是把Post和User关联起来 User还没有和Post关联
+}
