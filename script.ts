@@ -69,10 +69,34 @@ async function main() {
   
   // 8. 创建user的同时，创建一个post
 
-  const result = await prisma.post.create({
-    data:{
-      title:"Hello World!"
-    }
+  // const result = await prisma.user.create({
+  //   data:{
+  //     name:'new',
+  //     email:'new@qq.com',
+  //     posts:{
+  //       create:{
+  //         title:'new post',
+  //         content:'test content'
+  //       }
+  //     }
+  //   }
+  // })
+
+  // 9. 查询一部分
+
+  // const result = await prisma.user.findMany({
+  //   where:{
+  //     name:{
+  //       startsWith: 'z'                        // 查询name里z开头的
+  //     }
+  //   }
+  // })
+
+  // 10. 分页查询
+
+  const result = await prisma.user.findMany({
+    skip:2,                                       // skip 从哪个查起   skip:2 就是从第3条查起
+    take:2                                        // take 查几个
   })
 
   console.log(result)
