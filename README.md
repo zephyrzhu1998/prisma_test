@@ -22,3 +22,7 @@ Navigate into the project directory and install the npm dependencies with the fo
 cd prisma-workshop
 npm install
 ```
+
+### 3. Tutorial on bilibili
+
+https://www.bilibili.com/video/BV1UM4y1T7QF/?spm_id_from=333.337.search-card.all.click&vd_source=3f44542a8f81e9732c1591dd25f3b1c9
